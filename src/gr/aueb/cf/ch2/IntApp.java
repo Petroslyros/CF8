@@ -1,4 +1,4 @@
-package gr.aueb.cf.ch1.ch2;
+package gr.aueb.cf.ch2;
 
 /**
  *

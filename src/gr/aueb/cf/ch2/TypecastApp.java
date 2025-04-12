@@ -1,4 +1,4 @@
-package gr.aueb.cf.ch1.ch2;
+package gr.aueb.cf.ch2;
 
 public class TypecastApp {
     public static void main(String[] args) {
@@ -6,5 +6,7 @@ public class TypecastApp {
         long num2 = 20L; // type suffix
 
         num1 = (int) num2;
+
+        System.out.println();
     }
 }
