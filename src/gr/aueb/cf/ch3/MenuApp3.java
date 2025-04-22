@@ -9,13 +9,13 @@ public class MenuApp3 {
 
 
         do{
-
             System.out.println("Please select one of the below choices: ");
             System.out.println("1. Input product: ");
             System.out.println("2. Delete product ");
             System.out.println("3. Update product ");
             System.out.println("4. Search product ");
             System.out.println("5. Exit ");
+
             choiceInput = scanner.nextInt();
 
             if(choiceInput == 1){
