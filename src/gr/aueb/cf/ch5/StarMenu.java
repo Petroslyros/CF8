@@ -44,7 +44,6 @@ public class StarMenu {
         System.out.println("6. Exit app");
     }
     public static void printHorizontal(){
-
         int stars;
         System.out.println("How many stars would you like to print? ");
         stars = scanner.nextInt();
