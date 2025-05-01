@@ -116,5 +116,63 @@ public class Ch6Homework {
         return true;
     }
 
+    public static boolean moreThan3Even(int[] arr){
+        int counter = 0;
+
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] % 2 == 0){
+                counter++;
+                if(counter >= 3) return true;
+            }
+        }
+        return false;
+    }
+    public static boolean moreThan3Odds(int[] arr){
+        int counter = 0;
+
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] % 2 != 0){
+                counter++;
+                if(counter >= 3) return true;
+            }
+        }
+        return false;
+    }
+    public static boolean moreThan3Consecutives(int[] arr){
+
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] == arr[i + 1]  && arr[i] == arr[i+ 2] ){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean moreThanTwoWithSameEnding(int[] arr){
+        int[] endings = new int[10]; //default value is 0
+
+        for(int num : arr){
+            int ending = num % 10;
+            int count = endings[ending]++;
+            if(count > 2) return true;
+        }
+        return false;
+    }
+
+    public static boolean noMoreThanThreePerDecade(int[] arr) {
+        int[] decades = new int[100]; // supports numbers up to 999
+
+        for (int num : arr) {
+            int decade = num / 10;
+            decades[decade]++;
+
+            if (decades[decade] > 3) {
+                return false; // more than 3 in same decade
+            }
+        }
+
+        return true; // all decades have 3 or fewer numbers
+    }
+
 
 }
