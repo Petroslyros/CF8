@@ -14,4 +14,11 @@ public class BubbleSort {
         }
         return arr;
     }
+
+    public static boolean isSymmetric(int[] arr){
+        for(int i = 0, j = arr.length; i < j; i++, j--){
+            if(arr[i] == arr[j]) return true;
+        }
+        return false;
+    }
 }
