@@ -20,7 +20,7 @@ public class StringTraverse {
         }
 
 
-        //STARSTS WITH
+        //STARTS WITH
         String str = "Coding";
 
         if(str.startsWith("Cod")){
