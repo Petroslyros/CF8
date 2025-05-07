@@ -3,11 +3,15 @@ package gr.aueb.cf.ch6;
 public class Ch6Homework {
     public static void main(String[] args) {
 
-        int[] arr = {5, 2, 3, 4, 5};
-        System.out.println(getMinValPos(arr));
-        System.out.println(getMinVal(arr));
-        System.out.println(getSecondMinValue(arr));
-        System.out.println(getPos(arr, 5));
+        int[] arr = {0, 1, 4, 4, 4, 6, 7, 8, 8, 8, 8, 8};
+        int[] arr2 = getLowAndHighIndexOf(arr,8);
+
+        for(int i = 0; i < arr2.length; i++){
+            System.out.print(arr2[i] + " ");
+        }
+
+        int[][] arr3 = {{1012,1136,}, {1317, 1417}, {1015, 1020}};
+
 
     }
 
@@ -228,7 +232,6 @@ public class Ch6Homework {
         }
         return result;
     }
-
 
 
 
