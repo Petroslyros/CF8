@@ -13,9 +13,10 @@ public class Main {
         //STRINGS
 
         // String evenOrOdd = (number % 2 == 0) ? "EVEN" : "ODD";
-        // String[] fruits = {"Apple","orange","banana","coconut"};
+
         // String[] foods = new String[3];
         // Arrays.fill(fruits,"pineapple");
+
         // String upper = str1.toUpperCase();
         // String lower = str2.toLowerCase();
         //if we didn't have equalsIgnoreCase() we would need to:
@@ -26,14 +27,23 @@ public class Main {
 //        for(int i = s.length() -1; i >= 0; i--){
 //            System.out.print(s.charAt(i) + " ");
 //        }
+        //PALINDROME CHECK
+//        StringBuilder sb = new StringBuilder();
+//        for(int i = s.length() -1; i >= 0; i--){
+//            sb.append(s.charAt(i));
+//        }
+//        return s.equals(sb.toString());
+//    }
 //        if(str.startsWith("Cod")) checks of the string starts with this
 //        (str.startsWith("od",1) starts with this string from position 1
 //        String s4 = s1.concat(s2);
 //        String s5 = s1 + " " + s2;
 //        String s6 = s1.concat(" ").concat(s2);
 //        System.out.println("*".repeat(10));
+
 //        String replaced1 = s1.replace(" ",":");
 //        System.out.println(replaced1);
+
 //        subStr = s.substring(1); //"oding Factory"
 //        subStr2 = s.substring(1,3);
 //        public static void traverse(String s){
@@ -114,7 +124,7 @@ public class Main {
 
         return true;
     }
-    //BINARY
+    //BINARY SEARCH
     public static int[] getLowAndHighIndexOf(int[] arr, int key) {
         if (arr == null) return new int[0];
 
