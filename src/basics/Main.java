@@ -7,15 +7,41 @@ public class Main {
     public static void main(String[] args) {
 
         //symbol = scanner.next().charAt(0);
-
-        //System.out.printf("%.2d");                      name.equalsIgnoreCase();
-
+        //System.out.printf("%.2d");
         //Ternary operator
-        //String evenOrOdd = (number % 2 == 0) ? "EVEN" : "ODD";
 
-        // String[] fruits = {"Apple","orange","banana","coconut"};               String[] foods = new String[3];
+        //STRINGS
+
+        // String evenOrOdd = (number % 2 == 0) ? "EVEN" : "ODD";
+        // String[] fruits = {"Apple","orange","banana","coconut"};
+        // String[] foods = new String[3];
         // Arrays.fill(fruits,"pineapple");
+        // String upper = str1.toUpperCase();
+        // String lower = str2.toLowerCase();
+        //if we didn't have equalsIgnoreCase() we would need to:
+        //boolean areEqual = str1.toUpperCase().equals(str2.toUpperCase());
+        //if(str1.compareToIgnoreCase(str4) > 0)
 
+        //prints the reverse of the string
+//        for(int i = s.length() -1; i >= 0; i--){
+//            System.out.print(s.charAt(i) + " ");
+//        }
+//        if(str.startsWith("Cod")) checks of the string starts with this
+//        (str.startsWith("od",1) starts with this string from position 1
+//        String s4 = s1.concat(s2);
+//        String s5 = s1 + " " + s2;
+//        String s6 = s1.concat(" ").concat(s2);
+//        System.out.println("*".repeat(10));
+//        String replaced1 = s1.replace(" ",":");
+//        System.out.println(replaced1);
+//        subStr = s.substring(1); //"oding Factory"
+//        subStr2 = s.substring(1,3);
+//        public static void traverse(String s){
+//            for(int i = 0; i <s.length(); i++){
+//                System.out.print(s.substring(i, i+1));
+//            }
+//        }
+//        int positionOfLasto = cf.lastIndexOf("o"); //11
 
 
     }
@@ -34,18 +60,7 @@ public class Main {
             }
         }
     }
-
-   //VARARGS
-    static double average(double... numbers){
-        double sum = 0;
-
-        for(double number : numbers){
-            sum += number;
-        }
-        return sum / numbers.length;
-    }
-
-    static void makeTelephone(){
+    static void makeTelephoneWithEnchancedFor(){
         char[][] telephone = {{'1','2','3'},{'4','5','6'},{'7','8','9'},{'*','0','#'}};
 
         for(char[] rows : telephone){
@@ -54,5 +69,96 @@ public class Main {
             }
             System.out.println();
         }
+    }
+    public static boolean moreThan3Even(int[] arr) {
+        int counter = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 == 0) {
+                counter++;
+                if (counter >= 3) return true;
+            }
+        }
+        return false;
+    }
+    public static boolean moreThan3Consecutives(int[] arr) {
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == arr[i + 1] && arr[i] == arr[i + 2]) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static boolean moreThanTwoWithSameEnding(int[] arr) {
+        int[] endings = new int[10]; //default value is 0
+
+        for (int num : arr) {
+            int ending = num % 10;
+            int count = endings[ending]++;
+            if (count > 2) return true;
+        }
+        return false;
+    }
+    public static boolean noMoreThanThreePerDecade(int[] arr) {
+        int[] decades = new int[100];
+
+        for (int num : arr) {
+            int decade = num / 10;
+            decades[decade]++;
+
+            if (decades[decade] > 3) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    //BINARY
+    public static int[] getLowAndHighIndexOf(int[] arr, int key) {
+        if (arr == null) return new int[0];
+
+        int low = findFirstIndex(arr,key);
+        int high = findLastIndex(arr,key);
+
+        return new int[]{low,high};
+    }
+    public static int findFirstIndex(int[] arr, int key) {
+        int result = -1;
+        int left = 0;
+        int right = arr.length - 1;
+        int middle = 0;
+
+        while (left <= right) {
+            middle = (right + left) / 2;
+            if (arr[middle] == key) {
+                result = middle;
+                right = middle - 1;
+            } else if (arr[middle] < key) {
+                left = middle + 1;
+            } else if (arr[middle] > key) {
+                right = middle - 1;
+            }
+        }
+        return result;
+    }
+    public static int findLastIndex(int[] arr, int key) {
+        int result = -1;
+        int left = 0;
+        int right = arr.length - 1;
+        int middle = 0;
+
+        while (left <= right) {
+            middle = (right + left) / 2;
+            if (arr[middle] == key) {
+                result = middle;
+                left = middle + 1;
+            } else if (arr[middle] < key) {
+                left = middle + 1;
+            } else {
+                right = middle - 1;
+            }
+        }
+        return result;
     }
 }
