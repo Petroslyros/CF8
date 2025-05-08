@@ -11,7 +11,6 @@ public class Main {
         //Ternary operator
 
         //STRINGS
-
         // String evenOrOdd = (number % 2 == 0) ? "EVEN" : "ODD";
 
         // String[] foods = new String[3];
@@ -23,7 +22,7 @@ public class Main {
         //boolean areEqual = str1.toUpperCase().equals(str2.toUpperCase());
         //if(str1.compareToIgnoreCase(str4) > 0)
 
-        //prints the reverse of the string
+        //PRINTS THE REVERSE OF A STRING
 //        for(int i = s.length() -1; i >= 0; i--){
 //            System.out.print(s.charAt(i) + " ");
 //        }
@@ -55,7 +54,7 @@ public class Main {
 
 
     }
-
+    public static void starMenu(){}
     static void bubbleSort(int[] pin) {
         int n = pin.length;
         int temp;
@@ -63,9 +62,9 @@ public class Main {
         for (int i = 0; i < n; i++) {
             for (int j = n - 1; j > i; j--) {
                 if (pin[j - 1] > pin[j]) {
-                    temp = pin[j - 1];
-                    pin[j - 1] = pin[j];
-                    pin[j] = temp;
+                    temp = pin[j];
+                    pin[j] = pin[j -1];
+                    pin[j -1] = temp;
                 }
             }
         }
@@ -170,5 +169,19 @@ public class Main {
             }
         }
         return result;
+    }
+    public static String caesarEncrypt(String s){
+        StringBuilder sb = new StringBuilder();
+
+        for(int i = 0; i < s.length(); i++){
+            String letter = s.substring(i, i+1);
+            if(letter.equals("z")){
+                sb.append("a");
+            } else sb.append((char)s.charAt(i)+1);
+        }
+        return sb.toString();
+    }
+    public static boolean isInteger(String s) {
+        return s.matches("-?\\d+");
     }
 }
