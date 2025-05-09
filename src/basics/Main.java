@@ -170,14 +170,30 @@ public class Main {
         }
         return result;
     }
+    public static int getSecondMinValue(int[] arr) {
+        if (arr == null) return -1;
+
+        int minVal = Integer.MAX_VALUE;
+        int secondMinVal = Integer.MAX_VALUE;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < minVal) {
+                secondMinVal = minVal;
+                minVal = arr[i];
+            } else if (arr[i] > minVal && arr[i] < secondMinVal) {
+                secondMinVal = arr[i];
+            }
+        }
+        return secondMinVal;
+    }
     public static String caesarEncrypt(String s){
         StringBuilder sb = new StringBuilder();
 
         for(int i = 0; i < s.length(); i++){
-            String letter = s.substring(i, i+1);
-            if(letter.equals("z")){
-                sb.append("a");
-            } else sb.append((char)s.charAt(i)+1);
+            char letter = s.charAt(i);
+            if(letter == 'z'){
+                sb.append('a');
+            } else sb.append((char) (letter + 1));
         }
         return sb.toString();
     }
