@@ -6,19 +6,21 @@ public class PracticeBlank {
 
 
         }
-    public static String caesarEncrypt(String s){
+
+      public static String seacar(String s){
         StringBuilder sb = new StringBuilder();
 
         for(int i = 0; i < s.length(); i++){
             char letter = s.charAt(i);
-            if(letter == 'z'){
+            if(letter == 'z') {
                 sb.append('a');
-            } else {
-                sb.append((char) (letter + 3));
             }
+            else sb.append((char) (letter + 3));
         }
         return sb.toString();
-    }
+      }
+
+
 
     }
 

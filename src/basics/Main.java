@@ -7,6 +7,11 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
 
+       int[][] arr = {{1012, 1136}, {1317, 1417},
+                             {1015, 1020}};
+        parkingLot(arr);
+
+
         //symbol = scanner.next().charAt(0);
         //System.out.printf("%.2d");
         //Ternary operator
@@ -23,6 +28,17 @@ public class Main {
         //boolean areEqual = str1.toUpperCase().equals(str2.toUpperCase());
         //if(str1.compareToIgnoreCase(str4) > 0)
 
+
+//        if(str.startsWith("Cod")) checks of the string starts with this
+//        (str.startsWith("od",1) starts with this string from position 1
+//        String s4 = s1.concat(s2);
+//        String s5 = s1 + " " + s2;
+//        String s6 = s1.concat(" ").concat(s2);
+//        System.out.println("*".repeat(10));
+
+//        String replaced1 = s1.replace(" ",":");
+//        System.out.println(replaced1);
+
         //PRINTS THE REVERSE OF A STRING
 //        for(int i = s.length() -1; i >= 0; i--){
 //            System.out.print(s.charAt(i) + " ");
@@ -34,15 +50,6 @@ public class Main {
 //        }
 //        return s.equals(sb.toString());
 //    }
-//        if(str.startsWith("Cod")) checks of the string starts with this
-//        (str.startsWith("od",1) starts with this string from position 1
-//        String s4 = s1.concat(s2);
-//        String s5 = s1 + " " + s2;
-//        String s6 = s1.concat(" ").concat(s2);
-//        System.out.println("*".repeat(10));
-
-//        String replaced1 = s1.replace(" ",":");
-//        System.out.println(replaced1);
 
 //        subStr = s.substring(1); //"oding Factory"
 //        subStr2 = s.substring(1,3);
@@ -202,35 +209,55 @@ public class Main {
     public static boolean isInteger(String s) {
         return s.matches("-?\\d+");
     }
-    public static int maxCarsAtSameTime(int[][] arr) {
-        int n = arr.length;
-        int[][] events = new int[n * 2][2];
 
-        // Step 1: Fill events array with arrival (1) and departure (0)
-        for (int i = 0; i < n; i++) {
-            events[i * 2][0] = arr[i][0];
-            events[i * 2][1] = 1;  // arrival
-            events[i * 2 + 1][0] = arr[i][1];
-            events[i * 2 + 1][1] = 0;  // departure
-        }
+    public static int parkingLot(int[][] arr){
+        int[][] parkedCars = new int[arr.length * 2][2];
+        int row = 0;
 
-        // Step 2: Sort events by time; if equal, departures first
-        Arrays.sort(events, (a, b) -> {
-            if (a[0] != b[0]) return a[0] - b[0];
-            return a[1] - b[1]; // departure before arrival if time is the same
-        });
+        for(int i = 0; i <= arr.length-1; i++){
+            for(int j = 0; j <= 1; j++){
 
-        // Step 3: Traverse events and compute max count
-        int count = 0, maxCount = 0;
-        for (int[] event : events) {
-            if (event[1] == 1) {
-                count++; // arrival
-                maxCount = Math.max(maxCount, count);
-            } else {
-                count--; // departure
+                parkedCars[row][0] = arr[i][j];
+//                parkedCars[row][1] = j == 0 ? 1 : 0;
+                if(j == 0){
+                    parkedCars[row][1] = 1;
+                } else { parkedCars[row][1] = 0;}
+                row++;
             }
         }
+        for(int i = 0; i < parkedCars.length; i++){
+            for(int j = 0; j <= parkedCars.length -i; j++){
+                if(parkedCars[j][0] > parkedCars[j+1][0]){
+                    int[] temp = parkedCars[j];
+                    parkedCars[j] = parkedCars[j+1];
+                    parkedCars[j+1] = temp;
+                }
+            }
+        }
+        int count = 0;
+        int maxParkedCars = 0;
 
-        return maxCount;
+        for(int i = 0; i < parkedCars.length -1; i++){
+            if(parkedCars[i][1] == 1){
+                count++;
+            } else {
+                count--;
+            }
+
+            if(count > maxParkedCars){
+                maxParkedCars = count;
+            }
+
+        }
+        return maxParkedCars;
+
+
     }
 }
+
+
+
+
+
+
+
