@@ -4,21 +4,17 @@ public class PracticeBlank {
     public static void main(String[] args) {
 
 
-
-        }
-
-      public static String seacar(String s){
-        StringBuilder sb = new StringBuilder();
-
-        for(int i = 0; i < s.length(); i++){
-            char letter = s.charAt(i);
-            if(letter == 'z') {
-                sb.append('a');
+        for(int i = 0; i <= 5; i++){
+            for(int j = i; j <= 5; j++){
+                System.out.print("* ");
             }
-            else sb.append((char) (letter + 3));
+            System.out.println();
         }
-        return sb.toString();
-      }
+
+
+        }
+
+
 
 
 

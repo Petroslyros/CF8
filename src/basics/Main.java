@@ -5,11 +5,12 @@ import java.util.Scanner;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
 
-       int[][] arr = {{1012, 1136}, {1317, 1417},
-                             {1015, 1020}};
-        parkingLot(arr);
+        int[][] arr = {{1012, 1136}, {1317, 1417},
+                {1015, 1020}};
+        System.out.println(parkingLot(arr));
 
 
         //symbol = scanner.next().charAt(0);
@@ -63,7 +64,8 @@ public class Main {
 
 
     }
-    public static void starMenu(){}
+
+    public static void starMenu() {}
     static void bubbleSort(int[] pin) {
         int n = pin.length;
         int temp;
@@ -72,17 +74,17 @@ public class Main {
             for (int j = n - 1; j > i; j--) {
                 if (pin[j - 1] > pin[j]) {
                     temp = pin[j];
-                    pin[j] = pin[j -1];
-                    pin[j -1] = temp;
+                    pin[j] = pin[j - 1];
+                    pin[j - 1] = temp;
                 }
             }
         }
     }
-    static void makeTelephoneWithEnchancedFor(){
-        char[][] telephone = {{'1','2','3'},{'4','5','6'},{'7','8','9'},{'*','0','#'}};
+    static void makeTelephoneWithEnchancedFor() {
+        char[][] telephone = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}, {'*', '0', '#'}};
 
-        for(char[] rows : telephone){
-            for(char number : rows){
+        for (char[] rows : telephone) {
+            for (char number : rows) {
                 System.out.print(number + " ");
             }
             System.out.println();
@@ -136,10 +138,10 @@ public class Main {
     public static int[] getLowAndHighIndexOf(int[] arr, int key) {
         if (arr == null) return new int[0];
 
-        int low = findFirstIndex(arr,key);
-        int high = findLastIndex(arr,key);
+        int low = findFirstIndex(arr, key);
+        int high = findLastIndex(arr, key);
 
-        return new int[]{low,high};
+        return new int[]{low, high};
     }
     public static int findFirstIndex(int[] arr, int key) {
         int result = -1;
@@ -195,12 +197,12 @@ public class Main {
         }
         return secondMinVal;
     }
-    public static String caesarEncrypt(String s){
+    public static String caesarEncrypt(String s) {
         StringBuilder sb = new StringBuilder();
 
-        for(int i = 0; i < s.length(); i++){
+        for (int i = 0; i < s.length(); i++) {
             char letter = s.charAt(i);
-            if(letter == 'z'){
+            if (letter == 'z') {
                 sb.append('a');
             } else sb.append((char) (letter + 3));
         }
@@ -209,48 +211,48 @@ public class Main {
     public static boolean isInteger(String s) {
         return s.matches("-?\\d+");
     }
-
-    public static int parkingLot(int[][] arr){
+    public static int parkingLot(int[][] arr) {
         int[][] parkedCars = new int[arr.length * 2][2];
         int row = 0;
 
-        for(int i = 0; i <= arr.length-1; i++){
-            for(int j = 0; j <= 1; j++){
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[0].length; j++) {
 
                 parkedCars[row][0] = arr[i][j];
 //                parkedCars[row][1] = j == 0 ? 1 : 0;
-                if(j == 0){
+                if (j == 0) {
                     parkedCars[row][1] = 1;
-                } else { parkedCars[row][1] = 0;}
+                } else {
+                    parkedCars[row][1] = 0;
+                }
                 row++;
             }
         }
-        for(int i = 0; i < parkedCars.length; i++){
-            for(int j = 0; j <= parkedCars.length -i; j++){
-                if(parkedCars[j][0] > parkedCars[j+1][0]){
+        for (int i = 0; i < parkedCars.length; i++) {
+            for (int j = parkedCars.length - 1; j > i; j--) {
+                if (parkedCars[j - 1][0] > parkedCars[j][0]) {
                     int[] temp = parkedCars[j];
-                    parkedCars[j] = parkedCars[j+1];
-                    parkedCars[j+1] = temp;
+                    parkedCars[j] = parkedCars[j - 1];
+                    parkedCars[j - 1] = temp;
                 }
             }
         }
+
         int count = 0;
         int maxParkedCars = 0;
 
-        for(int i = 0; i < parkedCars.length -1; i++){
-            if(parkedCars[i][1] == 1){
+        for (int i = 0; i < parkedCars.length; i++) {
+            if (parkedCars[i][1] == 1) {
                 count++;
             } else {
                 count--;
             }
-
-            if(count > maxParkedCars){
-                maxParkedCars = count;
+            if (count > maxParkedCars) {
+                maxParkedCars = count; //παρακολουθουμε το μεγιστο αριθμο που ανεβηκε το count
             }
 
         }
         return maxParkedCars;
-
 
     }
 }
