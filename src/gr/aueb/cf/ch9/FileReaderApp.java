@@ -39,7 +39,8 @@ public class FileReaderApp {
 
     public static void bufferedRead(File file) throws IOException {
 //        try(BufferedReader br = new BufferedReader(new FileReader(file))){
-        try(BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8))){
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file),
+                StandardCharsets.UTF_8))){
             String line;
             while((line = br.readLine()) != null){
                 System.out.println(line);
