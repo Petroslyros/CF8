@@ -8,9 +8,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[][] arr = {{1012, 1136}, {1317, 1417},
-                {1015, 1020}};
-        System.out.println(parkingLot(arr));
+
+        int[][] arr1 = {{1012, 1136},
+                        {1317, 1417},
+                        {1015, 1020}};
+
+        System.out.println(parkingLot(arr1));
 
 
         //symbol = scanner.next().charAt(0);
@@ -217,7 +220,6 @@ public class Main {
 
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[0].length; j++) {
-
                 parkedCars[row][0] = arr[i][j];
 //                parkedCars[row][1] = j == 0 ? 1 : 0;
                 if (j == 0) {
@@ -231,8 +233,8 @@ public class Main {
         for (int i = 0; i < parkedCars.length; i++) {
             for (int j = parkedCars.length - 1; j > i; j--) {
                 if (parkedCars[j - 1][0] > parkedCars[j][0]) {
-                    int[] temp = parkedCars[j];
-                    parkedCars[j] = parkedCars[j - 1];
+                    int[] temp = parkedCars[j]; //ΚΡΑΤΑΕΙ ΟΛΗ ΤΗ ΣΕΙΡΑ ΤΟΥ PARKED CARS
+                    parkedCars[j] = parkedCars[j - 1]; //ΠΕΡΝΑΕΙ ΟΛΗ ΤΗ ΣΕΙΡΑ ΣΤΗ ΘΕΣΗ ΤΗΣ ΑΛΛΗΣ
                     parkedCars[j - 1] = temp;
                 }
             }
