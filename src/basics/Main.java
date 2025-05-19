@@ -243,7 +243,7 @@ public class Main {
         int count = 0;
         int maxParkedCars = 0;
 
-        for (int i = 0; i < parkedCars.length; i++) {
+        for (int i = 0; i < parkedCars.length -1; i++) {
             if (parkedCars[i][1] == 1) {
                 count++;
             } else {
@@ -257,6 +257,16 @@ public class Main {
         return maxParkedCars;
 
     }
+
+    public boolean isPalindrome(int x) {
+        if(x < 0) return false;
+        StringBuilder sb = new StringBuilder(x);
+
+        return sb.reverse().equals(sb);
+
+    }
+
+
 }
 
 
