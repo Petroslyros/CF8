@@ -257,7 +257,6 @@ public class Main {
         return maxParkedCars;
 
     }
-
     public boolean isPalindrome(int x) {
         if(x < 0) return false;
         StringBuilder sb = new StringBuilder(x);
@@ -265,7 +264,26 @@ public class Main {
         return sb.reverse().equals(sb);
 
     }
+    public static int getCount(String s, char ch, int n){
+        int count = 0;
+        int iterations = 0;
+        int totalCount = 0;
+        int remaining = 0;
 
+        for(int i = 0; i < s.length(); i++){
+            if(s.charAt(i) == ch) count++;
+        }
+        iterations = n / s.length();
+        totalCount = iterations * count;
+
+        remaining = n % s.length();
+        for(int i = 0; i < remaining; i++){
+            if(s.charAt(i) == ch){
+                totalCount++;
+            }
+        }
+        return totalCount;
+    }
 
 }
 
