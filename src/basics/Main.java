@@ -1,5 +1,10 @@
 package basics;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -8,12 +13,15 @@ public class Main {
 
     public static void main(String[] args) {
 
+        generateReportFromCSV("grades.csv", "report.txt");
 
         int[][] arr1 = {{1012, 1136},
                         {1317, 1417},
                         {1015, 1020}};
-
         System.out.println(parkingLot(arr1));
+
+        int[] arr = {1, -1, -1, -1, 1, 1, 1, 1, -1, -1};
+        System.out.println(stockMoves(arr));
 
 
         //symbol = scanner.next().charAt(0);
@@ -283,6 +291,64 @@ public class Main {
             }
         }
         return totalCount;
+    }
+    public static int stockMoves(int[] arr){
+        int count = 0;
+        int level = 0;
+        boolean belowBase = false;
+
+        for(int i = 0; i < arr.length; i++){
+            level += arr[i];
+
+            if(level < 0 && !belowBase){
+                count++;
+                belowBase = true;
+            }
+
+            if (level > 0) {
+                belowBase = false;
+            }
+        }
+        return count;
+    }
+    public static void generateReportFromCSV(String inputFile, String outputFile) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+             PrintWriter writer = new PrintWriter(outputFile, StandardCharsets.UTF_8)) {
+
+            String line;
+            double classTotal = 0;
+            int studentCount = 0;
+            int highestGrade = Integer.MIN_VALUE;
+
+            writer.println("Student Averages:");
+
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                String name = parts[0];
+                int sum = 0;
+
+                for (int i = 1; i < parts.length; i++) {
+                    int grade = Integer.parseInt(parts[i]);
+                    sum += grade;
+                    if (grade > highestGrade) {
+                        highestGrade = grade;
+                    }
+                }
+
+                double average = sum / (double) (parts.length - 1);
+                classTotal += average;
+                studentCount++;
+
+                writer.printf("%s: %.2f%n", name, average);
+            }
+
+            double classAverage = classTotal / studentCount;
+            writer.printf("Class Average: %.2f%n", classAverage);
+            writer.printf("Highest Grade: %d%n", highestGrade);
+
+        } catch (IOException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
     }
 
 }

@@ -4,7 +4,7 @@ public class Customer {
     private int id;
     private String firstname;
     private String lastname;
-    private String vat;
+    private String afm;
     private String phoneNo;
     private String region;
     private String prefecture;
@@ -22,7 +22,7 @@ public class Customer {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.vat = vat;
+        this.afm = vat;
         this.phoneNo = phoneNo;
         this.region = region;
         this.prefecture = prefecture;
@@ -56,12 +56,12 @@ public class Customer {
         this.lastname = lastname;
     }
 
-    public String getVat() {
-        return vat;
+    public String getAfm() {
+        return afm;
     }
 
-    public void setVat(String vat) {
-        this.vat = vat;
+    public void setAfm(String afm) {
+        this.afm = afm;
     }
 
     public String getPhoneNo() {

@@ -9,10 +9,10 @@ public class Practicing {
             catchSpider(grid[i][0],grid[i][1],grid[i][2]);
         }
         int[] arr = {40,30,10,20};
-        System.out.println(getStringNTimes("abc",3));
         System.out.println(getStringCharsNTimes("abc",3));
-        System.out.println(findTimesChAppearsInString("aaka",3,'a'));
-        System.out.println(getAge(arr,30));
+
+        int[] stockMove = {1,-1,-1,-1,1,1,1,1,-1,-1};
+
 
     }
     public static void catchSpider(int frog1pos, int frog2pos, int spiderPos) {
@@ -30,14 +30,6 @@ public class Practicing {
             System.out.println("Spider");
         }
     }
-    public static String getStringNTimes(String s,int n){
-        StringBuilder sb = new StringBuilder();
-
-        for(int i = 0; i < n; i++){
-            sb.append(s);
-        }
-        return sb.toString();
-    }
     public static String getStringCharsNTimes(String s, int n){
         StringBuilder sb = new StringBuilder();
 
@@ -52,29 +44,7 @@ public class Practicing {
 
         return sb.toString();
     }
-    public static int findTimesChAppearsInString(String s, int n, char ch){
-        if(n > s.length()) return -1;
-        StringBuilder sb = new StringBuilder(s);
-        int count = 0;
 
-        for(int i = 0; i < n; i++){
-            if(ch == sb.charAt(i)){
-                count++;
-            }
-        }
-        return count;
-    }
-    public static int getAge(int[] ages, int age){
-        int maxAge = 0;
-        for(int i = 0; i < ages.length; i++){
-            if(ages[i] > maxAge){
-                maxAge = ages[i];
-            }
 
-        }
-        if(maxAge < age) return 0;
-
-        return maxAge - age;
-    }
 
 }
