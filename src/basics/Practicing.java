@@ -10,9 +10,11 @@ public class Practicing {
             catchSpider(grid[i][0],grid[i][1],grid[i][2]);
         }
         int[] arr = {40,30,10,20};
-        System.out.println(getStringCharsNTimes("abc",3));
 
-        int[] stockMove = {1,-1,-1,-1,1,1,1,1,-1,-1};
+
+
+
+
 
 
     }
@@ -31,19 +33,24 @@ public class Practicing {
             System.out.println("Spider");
         }
     }
-    public static String getStringCharsNTimes(String s, int n){
-        StringBuilder sb = new StringBuilder();
 
+    public static int stockMoves(int[] arr){
+        int base = 0;
+        int count = 0;
+        boolean belowBase = false;
 
-        for(int i = 0; i < n ; i++){
-            char letter = s.charAt(i);
-            sb.append(letter);
-            if(sb.length() == n){
-                sb.append(letter);
+        for(int i = 0; i < arr.length-1; i++){
+            base += arr[i];
+
+            if(base < 0 && !belowBase){
+                count++;
+                belowBase = true;
+            }
+            if(base > 0){
+                belowBase = false;
             }
         }
-
-        return sb.toString();
+        return count;
     }
 
 

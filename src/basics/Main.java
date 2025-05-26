@@ -75,22 +75,6 @@ public class Main {
 
 
     }
-
-    public static void starMenu() {}
-    static void bubbleSort(int[] pin) {
-        int n = pin.length;
-        int temp;
-
-        for (int i = 0; i < n; i++) {
-            for (int j = n - 1; j > i; j--) {
-                if (pin[j - 1] > pin[j]) {
-                    temp = pin[j];
-                    pin[j] = pin[j - 1];
-                    pin[j - 1] = temp;
-                }
-            }
-        }
-    }
     static void makeTelephoneWithEnchancedFor() {
         char[][] telephone = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}, {'*', '0', '#'}};
 
@@ -100,17 +84,6 @@ public class Main {
             }
             System.out.println();
         }
-    }
-    public static boolean moreThan3Even(int[] arr) {
-        int counter = 0;
-
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] % 2 == 0) {
-                counter++;
-                if (counter >= 3) return true;
-            }
-        }
-        return false;
     }
     public static boolean moreThan3Consecutives(int[] arr) {
 
@@ -192,22 +165,6 @@ public class Main {
         }
         return result;
     }
-    public static int getSecondMinValue(int[] arr) {
-        if (arr == null) return -1;
-
-        int minVal = Integer.MAX_VALUE;
-        int secondMinVal = Integer.MAX_VALUE;
-
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < minVal) {
-                secondMinVal = minVal;
-                minVal = arr[i];
-            } else if (arr[i] > minVal && arr[i] < secondMinVal) {
-                secondMinVal = arr[i];
-            }
-        }
-        return secondMinVal;
-    }
     public static String caesarEncrypt(String s) {
         StringBuilder sb = new StringBuilder();
 
@@ -271,6 +228,20 @@ public class Main {
 
         return sb.reverse().equals(sb);
 
+    }
+    public static String getStringCharsNTimes(String s, int n){
+        StringBuilder sb = new StringBuilder();
+
+
+        for(int i = 0; i < n ; i++){
+            char letter = s.charAt(i);
+            sb.append(letter);
+            if(sb.length() == n){
+                sb.append(letter);
+            }
+        }
+
+        return sb.toString();
     }
     public static int getCount(String s, char ch, int n){
         int count = 0;
