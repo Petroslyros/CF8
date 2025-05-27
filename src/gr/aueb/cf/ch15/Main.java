@@ -29,6 +29,13 @@ public class Main {
         System.out.println(p1.toString());
         System.out.println(p2.toString());
         System.out.println(p3.toString());
+
+        Animal mailo = new Dog("Mailo", 1);
+        System.out.println(mailo);
+
+        Animal bella = new Animal();
+
+
     }
 
     public static void doMovePlus1(Point point){
