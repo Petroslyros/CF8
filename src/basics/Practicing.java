@@ -12,11 +12,6 @@ public class Practicing {
         int[] arr = {40,30,10,20};
 
 
-
-
-
-
-
     }
     public static void catchSpider(int frog1pos, int frog2pos, int spiderPos) {
             int dis1;
@@ -33,7 +28,6 @@ public class Practicing {
             System.out.println("Spider");
         }
     }
-
     public static int stockMoves(int[] arr){
         int base = 0;
         int count = 0;
