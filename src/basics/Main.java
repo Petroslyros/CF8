@@ -229,20 +229,6 @@ public class Main {
         return sb.reverse().equals(sb);
 
     }
-    public static String getStringCharsNTimes(String s, int n){
-        StringBuilder sb = new StringBuilder();
-
-
-        for(int i = 0; i < n ; i++){
-            char letter = s.charAt(i);
-            sb.append(letter);
-            if(sb.length() == n){
-                sb.append(letter);
-            }
-        }
-
-        return sb.toString();
-    }
     // Γράψτε μία μέθοδο που θα λαμβάνει ως είσοδο ένα string s,
     // το πλήθος των πρώτων γραμμάτων που θέλουμε να ελέγξουμε καθώς και τον χαρακτήρα αναζήτησης ch και επιστρέφει
     // το πλήθος των φορών που εμφανίζεται ο χαρακτήρας ch, στους πρώτους n χαρακτήρες του string s.
