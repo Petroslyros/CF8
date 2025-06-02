@@ -243,6 +243,11 @@ public class Main {
 
         return sb.toString();
     }
+    // Γράψτε μία μέθοδο που θα λαμβάνει ως είσοδο ένα string s,
+    // το πλήθος των πρώτων γραμμάτων που θέλουμε να ελέγξουμε καθώς και τον χαρακτήρα αναζήτησης ch και επιστρέφει
+    // το πλήθος των φορών που εμφανίζεται ο χαρακτήρας ch, στους πρώτους n χαρακτήρες του string s.
+    // Αν το N > length του string το string να γινεται repeat ωστε το τελικο μηκος του string να ειναι αμεσως μεγαλυτερο
+    // απο το μηκος του n
     public static int getCount(String s, char ch, int n){
         int count = 0;
         int iterations = 0;
