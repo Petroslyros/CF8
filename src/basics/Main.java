@@ -32,9 +32,7 @@ public class Main {
 
         //symbol = scanner.next().charAt(0);
         //System.out.printf("%.2d");
-        //Ternary operator
 
-        //STRINGS
         // String evenOrOdd = (number % 2 == 0) ? "EVEN" : "ODD";
 
         // String[] foods = new String[3];
@@ -77,7 +75,7 @@ public class Main {
 //            }
 //        }
 
-//        int positionOfLasto = cf.lastIndexOf("o"); //11
+//        int positionOfLastof = cf.lastIndexOf("o"); //11
 
 
     }
