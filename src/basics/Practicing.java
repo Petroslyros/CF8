@@ -13,21 +13,7 @@ public class Practicing {
 
     }
 
-    public static void catchSpider(int frog1pos, int frog2pos, int spiderPos) {
-        int dis1;
-        int dis2;
-        //we need Math abs to get the absolute position of each value
-        dis1 = Math.abs(spiderPos - frog1pos);
-        dis2 = Math.abs(spiderPos - frog2pos);
 
-        if (dis1 < dis2) {
-            System.out.println("Frog 1");
-        } else if (dis2 < dis1) {
-            System.out.println("Frog 2");
-        } else { //dist1 == dis2
-            System.out.println("Spider");
-        }
-    }
 
 
 }
