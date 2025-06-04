@@ -2,6 +2,7 @@ package gr.aueb.cf.ch19.maps;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class MainMap {
 
@@ -28,5 +29,11 @@ public class MainMap {
         }
 
         countries.forEach((k,v) -> System.out.println("Key " + k + "Value: " + v));
+
+        var filteredCountries = countries.entrySet().stream()
+                .filter(e -> e.getKey().length() <= 2)
+                .collect(Collectors.toSet());
+
+        filteredCountries.forEach(System.out::println);
     }
 }
