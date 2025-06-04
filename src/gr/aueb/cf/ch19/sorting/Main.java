@@ -23,7 +23,7 @@ public class Main {
                 Comparator.comparing(Product::getDescription)
                         .thenComparing(Product::getQuantity)
                         .thenComparing(Product::getPrice)
-                        .reversed()
+                        .reversed()  //to get ascending sorting
         );
     }
 }
