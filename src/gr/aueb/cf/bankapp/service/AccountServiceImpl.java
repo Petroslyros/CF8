@@ -10,6 +10,7 @@ import gr.aueb.cf.bankapp.exceptions.NegativeAmountException;
 import gr.aueb.cf.bankapp.model.Account;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class AccountServiceImpl implements IAccountService {
@@ -41,9 +42,11 @@ public class AccountServiceImpl implements IAccountService {
 
 
         } catch (NegativeAmountException e){
-
+            System.err.printf("%s. The amount =%f is negative. \n%s" , LocalDateTime.now(), amount, e.toString());
+            throw e;
         } catch (AccountNotFoundException e){
-
+            System.err.printf("%s. The account with iban = %s not found. \n%s" , LocalDateTime.now(), iban, e.toString());
+            throw e;
         }
     }
 
