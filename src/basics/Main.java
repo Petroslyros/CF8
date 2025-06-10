@@ -175,7 +175,7 @@ public class Main {
         for (int i = 0; i < s.length(); i++) {
             char letter = s.charAt(i);
             if (letter == 'z') {
-                sb.append('a');
+                sb.append('c');
             } else sb.append((char) (letter + 3));
         }
         return sb.toString();
@@ -233,6 +233,40 @@ public class Main {
         return sb.reverse().equals(sb);
 
     }
+    public static int stockMoves(int[] arr){
+        int count = 0;
+        int level = 0;
+        boolean belowBase = false;
+
+        for(int i = 0; i < arr.length; i++){
+            level += arr[i];
+
+            if(level < 0 && !belowBase){
+                count++;
+                belowBase = true;
+            }
+
+            if (level > 0) {
+                belowBase = false;
+            }
+        }
+        return count;
+    }
+    public static void catchSpider(int frog1pos, int frog2pos, int spiderPos) {
+        int dis1;
+        int dis2;
+        //we need Math abs to get the absolute position of each value
+        dis1 = Math.abs(spiderPos - frog1pos);
+        dis2 = Math.abs(spiderPos - frog2pos);
+
+        if (dis1 < dis2) {
+            System.out.println("Frog 1");
+        } else if (dis2 < dis1) {
+            System.out.println("Frog 2");
+        } else { //dist1 == dis2
+            System.out.println("Spider");
+        }
+    }
     // Γράψτε μία μέθοδο που θα λαμβάνει ως είσοδο ένα string s,
     // το πλήθος των πρώτων γραμμάτων που θέλουμε να ελέγξουμε καθώς και τον χαρακτήρα αναζήτησης ch και επιστρέφει
     // το πλήθος των φορών που εμφανίζεται ο χαρακτήρας ch, στους πρώτους n χαρακτήρες του string s.
@@ -257,40 +291,6 @@ public class Main {
             }
         }
         return totalCount;
-    }
-    public static void catchSpider(int frog1pos, int frog2pos, int spiderPos) {
-        int dis1;
-        int dis2;
-        //we need Math abs to get the absolute position of each value
-        dis1 = Math.abs(spiderPos - frog1pos);
-        dis2 = Math.abs(spiderPos - frog2pos);
-
-        if (dis1 < dis2) {
-            System.out.println("Frog 1");
-        } else if (dis2 < dis1) {
-            System.out.println("Frog 2");
-        } else { //dist1 == dis2
-            System.out.println("Spider");
-        }
-    }
-    public static int stockMoves(int[] arr){
-        int count = 0;
-        int level = 0;
-        boolean belowBase = false;
-
-        for(int i = 0; i < arr.length; i++){
-            level += arr[i];
-
-            if(level < 0 && !belowBase){
-                count++;
-                belowBase = true;
-            }
-
-            if (level > 0) {
-                belowBase = false;
-            }
-        }
-        return count;
     }
     public static void generateReportFromCSV(String inputFile, String outputFile) {
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));

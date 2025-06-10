@@ -1,6 +1,5 @@
 package gr.aueb.cf.ch19.mobile_contacts;
 
-import com.sun.source.tree.BreakTree;
 import gr.aueb.cf.ch19.mobile_contacts.dao.IMobileContactDAO;
 import gr.aueb.cf.ch19.mobile_contacts.model.MobileContact;
 
