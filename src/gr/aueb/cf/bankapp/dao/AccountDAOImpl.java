@@ -24,6 +24,7 @@ public class AccountDAOImpl implements IAccountDAO {
 
     @Override
     public void remove(String iban) {
+
         accounts.removeIf(a -> a.getIban().equals(iban));
     }
 
@@ -36,6 +37,7 @@ public class AccountDAOImpl implements IAccountDAO {
 
     @Override
     public List<Account> getAccounts() {
+
         return new ArrayList<>(accounts);
     }
 }
