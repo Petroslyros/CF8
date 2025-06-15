@@ -44,7 +44,6 @@ public class Main {
         //boolean areEqual = str1.toUpperCase().equals(str2.toUpperCase());
         //if(str1.compareToIgnoreCase(str4) > 0)
 
-
 //        if(str.startsWith("Cod")) checks of the string starts with this
 //        (str.startsWith("od",1) starts with this string from position 1
 //        String s4 = s1.concat(s2);
