@@ -5,13 +5,10 @@ import java.util.Scanner;
 public class Game {
     private final String player;
     private final Deck deck = new Deck();
-    int house1;
-    int house2;
-    int house3;
-    int house4;
+    private final Scanner scanner = new Scanner(System.in);
     int[] houses = new int[4];
     int points;
-    private final Scanner scanner = new Scanner(System.in);
+
 
     public Game(String player) {
         this.player = player;
@@ -76,7 +73,6 @@ public class Game {
             } catch (NumberFormatException e){
                 System.out.println("Invalid choice, try again");
             }
-            //PRINT POINTS
             System.out.print("Points: ");
             for (int i = 0; i < houses.length; i++) {
                 System.out.print("House " + (i + 1) + ": " + houses[i] + "  ");

@@ -17,7 +17,7 @@ public class Validator {
     public static Map<String, String> validate(AccountInsertDto dto){
         Map<String, String> errors = new HashMap<>();
 
-        if(dto.getIban()== null || dto.getIban().trim().length() < 5){
+        if(dto.getIban()== null || dto.getIban().trim().matches("^GR\\d{15}")){
             errors.put("iban", "The iban cannot be less than 5 numbers");
         }
 
