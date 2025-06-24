@@ -40,7 +40,7 @@ public class Game {
 
             boolean cardUsed = false;
 
-            try {
+
                 while (!cardUsed) {
                     System.out.print("In which house would you like the add the card? Type the corresponding number of the house : ");
                     String choice = scanner.nextLine();
@@ -70,9 +70,7 @@ public class Game {
                     }
 
                 }
-            } catch (NumberFormatException e){
-                System.out.println("Invalid choice, try again");
-            }
+
             System.out.print("Points: ");
             for (int i = 0; i < houses.length; i++) {
                 System.out.print("House " + (i + 1) + ": " + houses[i] + "  ");
