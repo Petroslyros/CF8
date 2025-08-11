@@ -8,7 +8,7 @@ import java.net.Socket;
 
 public class DayTimeCli {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         StringBuilder sb = new StringBuilder();
         Socket socket = null;
 
