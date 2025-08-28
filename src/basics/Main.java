@@ -29,6 +29,10 @@ public class Main {
             catchSpider(grid[i][0], grid[i][1], grid[i][2]);
         }
 
+        for(int i = 1; i <= 5; i++) {
+            System.out.println(" ".repeat(5-i) + "#".repeat(i));
+        }
+
 
         //symbol = scanner.next().charAt(0);
         //System.out.printf("%.2d");
@@ -362,6 +366,11 @@ public class Main {
                 System.out.print("# ");
             }
             System.out.println();
+        }
+    }
+    public static void oppositeHashMatrix(int n) {
+        for(int i = 1; i <= n; i++) {
+            System.out.println(" ".repeat(5-i) + "#".repeat(i));
         }
     }
     public static void percentages(int[] arr) {
